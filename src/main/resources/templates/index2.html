@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <!-- Enlace a Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 font-sans">
+
+<div class="max-w-3xl mx-auto p-6">
+    <!-- Título -->
+    <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Gestión de Tareas</h1>
+
+    <!-- Formulario-->
+    <form action="/" method="POST" class="bg-white p-6 rounded-lg shadow-lg mb-6">
+        <label for="tarea" class="block text-lg font-semibold text-gray-700 mb-2">Añadir nueva tarea:</label>
+        <input type="text" name="tarea" id="tarea"
+               class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+               placeholder="Escribe tu tarea aquí">
+        <button type="submit"
+                class="w-full bg-blue-600 text-white p-3 rounded-md hover:bg-blue-700 transition duration-300">Añadir Tarea</button>
+    </form>
+
+    <!-- Ultima tarea-->
+    <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+        <p class="text-lg text-gray-700 font-semibold">Última tarea añadida:</p>
+        <p class="text-xl text-blue-600" th:text="${tarea}">Última tarea añadida:</p>
+    </div>
+
+    <!-- Lista de tareas -->
+    <div class="bg-white p-4 rounded-lg shadow-md">
+        <p class="text-lg font-semibold text-gray-700 mb-2">Lista de Tareas:</p>
+        <ul class="list-disc pl-6">
+            <th:block th:each="moneda : ${monedasList}">
+                <li class="text-gray-800 text-lg mb-2" th:text="${moneda}"></li>
+
+            </th:block>
+        </ul>
+    </div>
+</div>
+
+</body>
+
+</html>
